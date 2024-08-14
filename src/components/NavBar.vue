@@ -12,14 +12,15 @@
             </v-btn>
         </v-toolbar>
         <v-app>
-            <v-navigation-drawer v-model="toolbar_drawer">
+            <v-navigation-drawer app v-model="toolbar_drawer" >
                 <v-app-bar-nav-icon size="large" class="text-primary mt-4 ml-4"
                     @click="toolbar_drawer = !toolbar_drawer"></v-app-bar-nav-icon>
                 <v-list class="ml-5">
                     <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
-
+                        <template v-slot:prepend>
+                            <v-icon :icon="link.icon"></v-icon>
+                        </template>
                         <v-list-item-title>{{ link.text }}</v-list-item-title>
-
                     </v-list-item>
                 </v-list>
             </v-navigation-drawer>
@@ -33,8 +34,8 @@ export default {
         return {
             toolbar_drawer: false,
             links: [
-                { text: 'Dashboard', route: '/' },
-                { text: 'Settings', route: '/About' },
+                { text: 'Dashboard', route: '/', icon: 'mdi-view-dashboard' },
+                { text: 'Settings', route: '/About', icon: 'mdi-account-box' },
             ]
         }
     },
