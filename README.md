@@ -1,4 +1,5 @@
 # calsrecord
+Components: Vuetify
 
 ## Project setup
 ```
