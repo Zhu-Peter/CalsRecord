@@ -3,14 +3,18 @@
     <NavBar />
   </nav>
   <router-view />
+  <footer>
+    <VueFooter/>
+  </footer>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
+import VueFooter from './components/Footer.vue';
 
 export default {
   name: 'App',
-  components: { NavBar },
+  components: { NavBar, VueFooter}, 
 
 }
 </script>

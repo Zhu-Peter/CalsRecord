@@ -46,6 +46,7 @@
 
 <script>
 export default {
+    name: "NavBar",
     data() {
         return {
             toolbar_drawer: false,
