@@ -15,7 +15,20 @@
         </v-carousel>
         <v-container style="margin-top: -450px;">
           <v-card flat class="pa-3" height="400">
-            
+            <v-container class="text-sm-h3 text-center">
+              <div class="pa-6" style="font-family: Arial, Helvetica, sans-serif;">
+                Sign up today to access our fully functional free app! Track your calories, create your own meals out of common ingredients, and much more!
+              </div>
+
+            </v-container>
+            <v-layout row wrap class="justify-center">
+              <v-flex xs12 md6 >
+                <v-btn block outline color="secondary" class="pa-6 mr-10">Sign up now!</v-btn>
+              </v-flex>
+              <v-flex xs12 md6>
+                <v-btn block outline color="primary" class="pa-6 ml-10">Sign in</v-btn>
+              </v-flex>
+            </v-layout>
           </v-card>
 
         </v-container>
