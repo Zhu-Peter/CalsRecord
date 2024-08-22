@@ -24,7 +24,7 @@
                     <span>Record</span>
                 </router-link>
             </v-app-bar-title>
-            <v-btn flat color="grey">
+            <v-btn flat color="grey" router to="/login">
                 <span>Sign In</span>
                 <v-icon right icon="mdi-exit-to-app" class="mx-1"></v-icon>
             </v-btn>

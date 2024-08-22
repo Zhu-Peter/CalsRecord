@@ -21,10 +21,10 @@
             </v-container>
             <v-row wrap class="justify-center">
               <v-col cols="8" md="3">
-                <v-btn block outline color="secondary" class="pa-6">Sign up now!</v-btn>
+                <v-btn block outline color="secondary" class="pa-6" router to="/signup">Sign up now!</v-btn>
               </v-col>
               <v-col cols="8" md="3">
-                <v-btn block outline color="primary" class="pa-6">Sign in</v-btn>
+                <v-btn block outline color="primary" class="pa-6" router to="/login">Sign in</v-btn>
               </v-col>
             </v-row>
           </v-card>
