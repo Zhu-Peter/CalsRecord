@@ -31,8 +31,8 @@
                                      ></v-text-field>
                                  </v-col>
                              </v-row>
-                             <v-row justify-end> 
-                                 <v-col cols="1" >
+                             <v-row justify="end"> 
+                                 <v-col cols="6" sm="3" md="2">
                                      <v-btn class="login_btn" color="primary" @click="login">Login</v-btn>
                                  </v-col>
                              </v-row>
@@ -87,6 +87,6 @@ export default {
     margin-bottom: 30px;
 }
 .login_btn{
-    margin-left: 30px;
+    /* margin-right: 30px; */
 }
 </style>
