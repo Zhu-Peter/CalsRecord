@@ -2,7 +2,7 @@
     <div>
         <v-container class="background_with_image bg-grey-darken-4" fluid fill-height>
             <v-row justify="center">
-                <v-card width="70%" height="90%" class="elevation-1 my-8 py-8" justify-center>
+                <v-card width="70%" height="95%" class="elevation-1 my-8 py-8" justify-center>
                     <v-card-title>
                         <v-card-title-text>
                             <span class="headline">Sign Up</span>
@@ -10,8 +10,8 @@
                     </v-card-title>
                     <v-card-text>
                         <v-container>
-                            <v-row>
-                                <v-col cols="6">
+                            <v-row justify="end">
+                                <v-col cols="12" sm="6">
                                     <v-text-field
                                         label="First Name"
                                         prepend-icon="mdi-account"
@@ -19,8 +19,9 @@
                                         required
                                     ></v-text-field>
                                 </v-col>
-                                <v-col cols="6">
+                                <v-col cols="12" sm="6" >
                                     <v-text-field
+                                        class="last_name_box"
                                         label="Last Name"
                                         v-model="last_name"
                                         required
@@ -49,7 +50,7 @@
                                  </v-col>
                              </v-row>
                              <v-row justify="end"> 
-                                 <v-col cols="1" >
+                                 <v-col cols="6" sm="3" md="2" >
                                      <v-btn class="login_btn" color="primary" @click="login">Sign Up</v-btn>
                                  </v-col>
                              </v-row>
@@ -70,7 +71,16 @@
 
 <script>
 export default {
-
+    name: 'SignUpPage',
+    data() {
+        return {
+            first_name: '',
+            last_name: '',
+            email: '',
+            password: '',
+            error: ''
+        }
+    },
 }
 </script>
 
@@ -90,4 +100,12 @@ export default {
     margin-left: 30px;
     margin-bottom: 30px;
 }
+
+.last_name_box{
+    @media screen and (max-width: 600px) {
+        margin-left: 40px;
+        
+    }
+}
+
 </style>
