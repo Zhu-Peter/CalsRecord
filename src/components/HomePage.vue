@@ -12,7 +12,7 @@
         </v-carousel>
         <v-container style="margin-top: -450px; margin-bottom: 2px;">
           <v-card flat class="pa-3" height="400">
-            <v-container class="text-sm-h4 text-md-h3 text-center mb-3">
+            <v-container class="text-sm-h5 text-md-h4 text-center mb-3 mt-4">
               <div class="pa-sm-5" style="font-family: Arial, Helvetica, sans-serif;">
                 Sign up today to access our fully functional free app! Track your calories, create your own meals out of
                 common ingredients, and much more!
@@ -55,9 +55,9 @@
 
             </v-col>
             
-            <v-col cols="12" sm="3" class="mx-n3 mt-5">
+            <v-col cols="12" sm="3" class="mx-md-n3 mt-md-5">
               <v-card class="text-center pa-2">
-                <div class="text-h5 ma-5">
+                <div class="text-h6 text-md-h5 ma-5">
                   Want more resources on a healthy diet and meal prep?
                 </div>
                 <v-btn color="primary ma-3 ">Click here</v-btn>
