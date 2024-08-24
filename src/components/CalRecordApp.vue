@@ -17,17 +17,28 @@
             <v-row>
                 <v-col>
                     <v-row class="breakfast">
-                        <v-btn color="primary" @click="addBreakfast">Add Breakfast</v-btn>
+                        <v-col></v-col>
+                        <v-col>
+                            <v-btn color="primary" @click="addBreakfast">Add Breakfast</v-btn>
+                        </v-col>
                     </v-row>
                     <v-row class="lunch">
-                        <v-btn color="primary" @click="addLunch">Add Lunch</v-btn>
+                        <v-col></v-col>
+                        <v-col>
+                             <v-btn color="primary" @click="addLunch">Add Lunch</v-btn>
+                         </v-col>
                     </v-row>
                     <v-row class="dinner">
-                        <v-btn color="primary" @click="addDinner">Add Dinner</v-btn>
+                        <v-col></v-col>
+                        <v-col>
+                            <v-btn color="primary" @click="addDinner">Add Dinner</v-btn>
+                        </v-col>
                     </v-row>
                     <v-row class="snacks">
-
-                        <v-btn color="primary" @click="addSnacks">Add Snacks</v-btn>
+                        <v-col></v-col>
+                        <v-col>
+                             <v-btn color="primary" @click="addSnacks">Add Snacks</v-btn>
+                         </v-col>
                     </v-row>
                     <v-row class="snacks">
 
