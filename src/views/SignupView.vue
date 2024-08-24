@@ -51,7 +51,7 @@
                              </v-row>
                              <v-row justify="end"> 
                                  <v-col cols="6" sm="3" md="2" >
-                                     <v-btn class="login_btn" color="primary" @click="login">Sign Up</v-btn>
+                                     <v-btn class="login_btn" color="primary" @click="signup">Sign Up</v-btn>
                                  </v-col>
                              </v-row>
                              <v-row>
@@ -80,6 +80,11 @@ export default {
             password: '',
             error: ''
         }
+    },
+    methods: {
+        signup: function () {
+
+        },
     },
 }
 </script>

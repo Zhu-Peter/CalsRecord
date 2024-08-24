@@ -62,9 +62,9 @@ export default {
         }
     },
     methods: {
-        login() {
+        login: function () {
             
-        }
+        },
     }
 
 }
@@ -86,7 +86,7 @@ export default {
     margin-left: 30px;
     margin-bottom: 30px;
 }
-.login_btn{
-    /* margin-right: 30px; */
-}
+/* .login_btn{
+    margin-right: 30px;
+} */
 </style>
