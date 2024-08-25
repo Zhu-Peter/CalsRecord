@@ -56,6 +56,7 @@ export default {
             email: '',
             password: '',
             error: '',
+            token: '',
         }
     },
     methods: {

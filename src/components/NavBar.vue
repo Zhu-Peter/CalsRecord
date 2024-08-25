@@ -66,6 +66,9 @@ export default {
             ]
         }
     },
+    methods: {
+        
+    },
     beforeMount() {
         let data = Cookies.get('LoginData');
         // console.log(data)
@@ -92,6 +95,14 @@ export default {
             }
 
         }
+    },
+    mounted() {
+        (data) => {
+            this.isLoggedIn = data;
+            if (this.isLoggedIn) {
+                this.userData = JSON.parse(Cookies.get('LoginData'));
+            }
+        };
     },
 }
 </script>
