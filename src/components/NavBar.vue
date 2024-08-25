@@ -24,7 +24,11 @@
                     <span>Record</span>
                 </router-link>
             </v-app-bar-title>
-            <v-btn flat color="grey" router to="/login">
+            <v-btn v-if="isLoggedIn" flat color="grey" router to="/profile">
+                <span>Profile</span>
+                <v-icon right icon="mdi-account-circle" class="mx-1"></v-icon>
+            </v-btn>
+            <v-btn v-else flat color="grey" router to="/login">
                 <span>Sign In</span>
                 <v-icon right icon="mdi-exit-to-app" class="mx-1"></v-icon>
             </v-btn>
@@ -45,16 +49,48 @@
 </template>
 
 <script>
+import Cookies from 'vue-cookies';
+import axios from 'axios';
+
 export default {
     name: "NavBar",
     data() {
         return {
             toolbar_drawer: false,
+            isLoggedIn: false,
             links: [
                 { text: 'Dashboard', route: '/', icon: 'mdi-view-dashboard' },
                 { text: 'About', route: '/About', icon: 'mdi-information' },
-                { text: 'Settings', route: '/', icon: 'mdi-account-box' }
+                {text: 'Profile', route: '/Profile', icon:  'mdi-account-circle' },
+                { text: 'Settings', route: '/Settings', icon: 'mdi-account-box' }
             ]
+        }
+    },
+    beforeMount() {
+        let data = Cookies.get('LoginData');
+        // console.log(data)
+
+        //fix null to check
+        if (!(data === null)) {
+            this.isLoggedIn = true;
+            if (Object.keys(data).length > 2) {
+                this.userData = data
+            } else {
+                axios.request({
+                    url: 'http://209.38.6.175:5000/api/client',
+                    headers: {
+                        "x-api-key": "q1LXwh"
+                    },
+                    params: data
+                }).then((response) => {
+                    // console.log({ ...data, ...response.data[0] });
+                    this.userData = { ...data, ...response.data[0] };
+                    let tempData = JSON.stringify(this.userData);
+                    Cookies.set('LoginData', tempData)
+                });
+
+            }
+
         }
     },
 }
