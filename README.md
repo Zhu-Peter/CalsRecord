@@ -1,5 +1,6 @@
 # calsrecord
-Components: Vuetify
+Components: Vuetify, vue-router
+vue-cookies, axios
 
 ## Project setup
 ```
