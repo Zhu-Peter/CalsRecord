@@ -1,12 +1,12 @@
 <template>
     <div>
-        <v-container>
+        <v-container class="my-5">
             <v-row>
                 <v-col>
-                    <v-card>
+                    <v-card class="pa-6">
                         <v-card-title>
                             <v-card-title-text>
-                                <span class="headline">Profile</span>
+                                <span class="text-h4 pa-5">Profile</span>
                             </v-card-title-text>
                         </v-card-title>
 
@@ -14,28 +14,41 @@
                             <v-container>
                                 <v-row>
                                     <v-col>
-                                        <span>First Name: {{userData.first_name}}</span>
+                                        <span class="text-h5 text-capitalize">First Name: {{userData.first_name}}</span>
                                         <v-text-field v-model="form.first_name" label="First Name"></v-text-field>
                                     </v-col>
                                     <v-col>
-                                        <span>Last Name: {{userData.last_name}}</span>
+                                        <span class="text-h5 text-capitalize">Last Name: {{userData.last_name}}</span>
                                         <v-text-field v-model="form.last_name" label="Last Name"></v-text-field>
                                     </v-col>
                                 </v-row>
                                 <v-row>
                                     <v-col>
-                                        <span>Email: {{userData.email}}</span>
+                                        <span class="text-h5">Email: {{userData.email}}</span>
                                         <v-text-field v-model="form.email" label="Email"></v-text-field>
                                     </v-col>
                                 </v-row>
-                                <v-row>
+                                <v-row align="end">
                                     <v-col>
-                                        <v-text-field v-model="form.password" label="Password"></v-text-field>
+                                        <span class="text-h5">Old Password</span>
+                                        <v-text-field v-model="form.oldpassword" label="Password"></v-text-field>
+                                    </v-col>
+                                    <v-col>
+                                        <v-text-field v-model="form.oldpassword_check" label="Re-enter Password"></v-text-field>
                                     </v-col>
                                 </v-row>
-                                <v-row>
+                                <v-row align="end">
+                                    <v-col>
+                                        <span class="text-h5">New Password</span>
+                                        <v-text-field v-model="form.password" label="Password"></v-text-field>
+                                    </v-col>
                                     <v-col>
                                         <v-text-field v-model="form.password_check" label="Re-enter Password"></v-text-field>
+                                    </v-col>
+                                </v-row>
+                                <v-row justify="end">
+                                    <v-col cols="2">
+                                        <v-btn color="primary" @click="updateUser">Update</v-btn>
                                     </v-col>
                                 </v-row>
                             </v-container>
@@ -149,10 +162,10 @@ export default {
         if (Object.keys(data).length == 2) {
             axios.request({
                 url: 'http://127.0.0.1:5000/api/user',
-                params: this.userData
+                params: data
             }).then(response => {
                 console.log(response);
-                this.userData = { ...data, ...response.data[0] };
+                this.userData = { ...data, ...response.data };
                 let tempData = JSON.stringify(this.userData);
                 Cookies.set('LoginData', tempData)
             }).catch(error => { console.log(error) })
