@@ -61,13 +61,13 @@ export default {
             links: [
                 { text: 'Dashboard', route: '/', icon: 'mdi-view-dashboard' },
                 { text: 'About', route: '/About', icon: 'mdi-information' },
-                {text: 'Profile', route: '/Profile', icon:  'mdi-account-circle' },
+                { text: 'Profile', route: '/Profile', icon: 'mdi-account-circle' },
                 { text: 'Settings', route: '/Settings', icon: 'mdi-account-box' }
             ]
         }
     },
     methods: {
-        
+
     },
     beforeMount() {
         let data = Cookies.get('LoginData');
@@ -80,10 +80,7 @@ export default {
                 this.userData = data
             } else {
                 axios.request({
-                    url: 'http://209.38.6.175:5000/api/client',
-                    headers: {
-                        "x-api-key": "q1LXwh"
-                    },
+                    url: 'http://127.0.0.1:5000/api/user',
                     params: data
                 }).then((response) => {
                     // console.log({ ...data, ...response.data[0] });
@@ -96,14 +93,7 @@ export default {
 
         }
     },
-    mounted() {
-        (data) => {
-            this.isLoggedIn = data;
-            if (this.isLoggedIn) {
-                this.userData = JSON.parse(Cookies.get('LoginData'));
-            }
-        };
-    },
+
 }
 </script>
 
