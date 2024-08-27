@@ -15,6 +15,26 @@
 
                 </v-col>
             </v-row>
+            <v-row justify="space-between" class="px-8">
+                <v-col>
+                    <span class="text-h4 text-md-h2">
+                        {{ date.toJSON().slice(0,10) }}
+                    </span>
+                </v-col>
+                <v-col cols="4" md="2">
+                    <v-menu>
+                        <template v-slot:activator="{ props }"> 
+                            <v-btn color="secondary" v-bind="props" size="large" append-icon="mdi-calendar">
+                                Date
+                            </v-btn>
+                        </template>
+                        <v-date-picker v-model="date">
+                        </v-date-picker>
+
+                    </v-menu>
+
+                </v-col>
+            </v-row>
             <v-row>
                 <v-col>
                     <v-expansion-panels variant="accordion">
@@ -92,6 +112,7 @@ export default {
     data() {
         return {
             search: "",
+            date: new Date(),
             currentSelection: "Breakfast",
             breakfast: [], lunch: [], dinner: [], snacks: []
         }
