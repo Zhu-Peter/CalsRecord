@@ -11,19 +11,19 @@
                         <!-- search bar -->
                         <v-text-field label="Search" v-model="search" prepend-icon="mdi-magnify"
                             @keyup="searchFood(search)"></v-text-field>
-                        <div class="search result container" v-for="food in FoodList" :key="food.food_name">
-                            <v-row class="pl-5">food items</v-row>
+                        <div class="search result container" v-for="(food, i) in FoodList" :key="i">
+                            <v-row class="pl-5" v-if="i==0">food items</v-row>
                             <v-row class="bg-grey-darken-1 mx-3">
                                 <v-col offset="1">{{ food.food_name }}</v-col>
                                 <v-col>{{ food.weight }}{{ food.weight_unit }}</v-col>
                                 <v-col>Cals: {{ food.cals }}</v-col>
                             </v-row>
                         </div>
-                        <div class="search result container" v-for="meal in MealList" :key="meal.name">
-                            <v-row class="pl-5">meals</v-row>
+                        <div class="search result container" v-for="(meal, i) in MealList" :key="i">
+                            <v-row class="pl-5 mt-3" v-if="i==0">meals</v-row>
                             <v-row class="bg-grey-darken-1 mx-3">
                                 <v-col offset="1">{{ meal.name }}</v-col>
-                                <v-col>Cals: {{ meal.cals }}</v-col>
+                                <v-col offset="4">Cals: {{ meal.total_cal }}</v-col>
                             </v-row>
                         </div>
                     </v-card>
@@ -169,24 +169,25 @@ export default {
             }).catch((error) => { console.log(error); this.error = error.response.data })
         },
         searchFood: function () {
-            let temp = { name: this.search }
+            let temp = { name: this.search, token: '1726897ed1d9bd139cab4f31640f45a9' }
             axios.request({
                 url: 'http://127.0.0.1:5000/api/food',
                 params: temp
 
             }).then((response) => {
-                console.log(response)
+                // console.log(response)
                 this.FoodList = response.data
             }).catch((error) => { console.log(error); })
             // console.log({data: this.search})
-
+            // let temp2 = JSON.stringify({token: this.userData.token})
             axios.request({
                 url: 'http://127.0.0.1:5000/api/meals',
+                headers: {token: `${this.userData.token}`},
                 params: temp
 
             }).then((response) => {
                 console.log(response)
-                this.FoodList = response.data
+                this.MealList = response.data
             }).catch((error) => { console.log(error); })
 
         },
