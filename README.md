@@ -1,6 +1,10 @@
 # calsrecord
-Components: Vuetify, vue-router
+Components: Vuetify3, vue-router
 vue-cookies, axios
+
+API: https://github.com/Zhu-Peter/CalsRecord_API
+
+video: https://youtu.be/aqEwnif9EBI
 
 ## Project setup
 ```
