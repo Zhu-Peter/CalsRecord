@@ -70,6 +70,9 @@
 </template>
 
 <script>
+import axios from 'axios';
+import Cookies from 'vue-cookies';
+
 export default {
     name: 'SignUpPage',
     data() {
@@ -83,7 +86,24 @@ export default {
     },
     methods: {
         signup: function () {
+            this.error = '';
+            axios.request({
+                method: 'post',
+                url: 'http://127.0.0.1:5000/api/user',
+                data: {
+                    email: this.email,
+                    first_name: this.first_name,
+                    last_name: this.last_name,
+                    password: this.password
+                }
 
+            }).then((request) => {
+                // console.log(request.data);
+                this.token = JSON.stringify(request.data);
+                Cookies.set('LoginData', this.token)
+                this.$router.push(`/`)
+
+            }).catch((error) => { console.log(error); this.error = error.response.data })
         },
     },
 }
